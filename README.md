@@ -6,7 +6,6 @@
 - React
 - Material UI
 - Material Icons
-- MUI file input
 - Axios
 - Sass
 
