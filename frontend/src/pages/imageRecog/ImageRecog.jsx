@@ -30,10 +30,12 @@ const ImageRecog = () => {
         if(file == null) { return; }
         setIsProcessing(true);
         await axios.post(
-            "",
-            {"image": file}
+            "http://localhost:8000/recog",
+            {"image": file.split(",")[1]}
         ).then((response) => {
-
+            setResultFile(response.data.image);
+        }).catch((error) => {
+            console.log(error);
         })
         setIsProcessing(false);
     }
@@ -45,7 +47,11 @@ const ImageRecog = () => {
                     <div className={style.img}>
                         {file == null ? <IconImgNotExist /> : <img src={file} />}
                     </div>
-                    <Button component="label" variant="contained" startIcon={<IconUpload />}>
+                    <Button
+                        component="label"
+                        variant="contained"
+                        startIcon={<IconUpload />}
+                    >
                         アップロード
                         <input
                             accept="image/*"
@@ -60,7 +66,12 @@ const ImageRecog = () => {
                     </Button>
                 </div>
                 <div>
-                    <Button variant="contained" disabled={file == null || isProcessing == true} endIcon={<IconArrowRight />}>
+                    <Button
+                        variant="contained"
+                        disabled={file == null || isProcessing == true}
+                        endIcon={<IconArrowRight />}
+                        onClick={handleRecogImage}
+                    >
                         解析
                     </Button>
                 </div>

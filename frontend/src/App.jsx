@@ -1,9 +1,11 @@
 import { useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+
+import style from "./App.module.scss";
 
 import ImageRecog from "./pages/imageRecog/ImageRecog";
 
@@ -19,7 +21,7 @@ const App = () => {
     ];
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <div className={style.container}>
             <AppBar position="static">
                 <Tabs
                     value={index}
@@ -36,7 +38,7 @@ const App = () => {
             <div>
                 {pageComponents[index]}
             </div>
-      </Box>
+      </div>
     );
 }
 
