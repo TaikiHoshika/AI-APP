@@ -1,0 +1,21 @@
+version: "3"
+services:
+  backend:
+    container_name: backend
+    hostname: backend
+    build: ./backend
+    tty:  true
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 8000:8000
+  frontend:
+    container_name: frontend
+    hostname: frontend
+    build: ./frontend
+    tty:  true
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules
+    ports:
+      - 3000:3000
