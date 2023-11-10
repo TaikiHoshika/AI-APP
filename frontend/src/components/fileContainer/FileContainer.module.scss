@@ -1,0 +1,72 @@
+.container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    background-color: var(--color-main);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    > button {
+        border: none;
+        background-color: var(--color-main);
+        color: var(--color-font);
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+
+        > .thumbnail {
+            height: 80px;
+            width: 80px;
+            background-color: var(--color-font);
+
+            > .analysing {
+                position: absolute;
+                background-color: rgba(255, 255, 255, 0.6);
+                height: 80px;
+                width: 80px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            > img {
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+                -webkit-user-drag: none;
+            }
+        }
+    
+        > .label {
+            width: 100%;
+            margin-left: 15px;
+            margin-right: 15px;
+    
+            > .line {
+                display: flex;
+                align-items: center;
+    
+                > .name {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+        
+                > .size {
+                    margin-left: auto;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    > .button {
+        margin-right: 15px;
+    }
+}

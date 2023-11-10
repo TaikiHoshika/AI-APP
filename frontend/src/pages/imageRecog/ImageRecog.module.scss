@@ -7,49 +7,52 @@
     align-items: center;
 
     box-sizing: border-box;
-    padding: 40px;
+    padding: 20px;
 }
 
-.imgContainer {
+.file {
     width: 100%;
-    height: 100%;
-    padding: 20px;
 
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    margin-top: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
 
-
-    background-color: var(--color-background);
+    color: var(--color-font);
+    background-color: var(--color-main);
     border-radius: var(--border-radius);
 
-    > .imgBox {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    > .thumbnail {
+        height: 80px;
+        width: 80px;
+        background-color: var(--color-font);
 
-        padding: 10px;
-        gap: 10px;
+        > img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            -webkit-user-drag: none;
+        }
+    }
 
-        > .img {
-            width: 500px;
-            height: 500px;
+    > .label {
+        width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
 
-            background-color: var(--color-main);
-            border-radius: var(--border-radius);
-            box-shadow: var(--color-shadow);
-
+        > .line {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
 
-            overflow: hidden;
-
-            > img {
-                width: 100%;
-                height: auto;
+            > .name {
+                font-weight: bold;
+                font-size: 20px;
+            }
+    
+            > .size {
+                margin-left: auto;
+                font-size: 15px;
             }
         }
     }

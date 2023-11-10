@@ -39,18 +39,18 @@ async def recogImg(value: Img):
         ids   = result.boxes.cls
 
         for conf, box, id in zip(confs, boxes, ids):
-            # if float(conf) >= 0.8:
-            start = (int(box[0] * w), int(box[1] * h))
-            end = (int(box[2] * w), int(box[3] * h))
-            cv2.rectangle(img, start, end, colors[int(id)], 2)
-            cv2.putText(
-                img,
-                result.names[int(id)],
-                (end[0] - 12 * len(result.names[int(id)]), start[1] - 5),
-                cv2.FONT_HERSHEY_PLAIN,
-                1.2,
-                colors[int(id)]
-            )
+            if float(conf) >= 0.8:
+                start = (int(box[0] * w), int(box[1] * h))
+                end = (int(box[2] * w), int(box[3] * h))
+                cv2.rectangle(img, start, end, colors[int(id)], 2)
+                cv2.putText(
+                    img,
+                    result.names[int(id)],
+                    (end[0] - 12 * len(result.names[int(id)]), start[1] - 5),
+                    cv2.FONT_HERSHEY_PLAIN,
+                    1.2,
+                    colors[int(id)]
+                )
 
     _, encoded = cv2.imencode(".jpeg", img)
     imgStr = base64.b64encode(encoded).decode("ascii")

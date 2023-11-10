@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 import style from "./App.module.scss";
 
 import ImageRecog from "./pages/imageRecog/ImageRecog";
+import Uploader from "./components/uploader/Uploader";
 
 const App = () => {
     const [index, setIndex] = useState(0);
@@ -17,11 +17,11 @@ const App = () => {
 
     const pageComponents = [
         <ImageRecog />,
-        <div>a</div>
+        <Uploader />
     ];
 
     return (
-        <div className={style.container}>
+        <div className={style.container} id="modal">
             <AppBar position="static">
                 <Tabs
                     value={index}
